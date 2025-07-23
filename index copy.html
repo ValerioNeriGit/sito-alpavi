@@ -77,6 +77,14 @@
                 0 5px 15px rgba(16, 185, 129, 0.4),
                 0 0 0 1px rgba(16, 185, 129, 0.3);
         }
+        
+        /* TOUCH TARGETS */
+        @media (max-width: 768px) {
+            .modern-button, button, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
 
         /* MOCKUP CONTAINER */
         .mockup-container {
@@ -117,10 +125,10 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .feature-card:active {
+        .feature-card:hover {
             border-color: rgba(16, 185, 129, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15);
         }
 
         /* PORTFOLIO VISUAL */
@@ -149,7 +157,6 @@
 
         /* STATS DISPLAY */
         .stat-number {
-            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 200;
             background: linear-gradient(135deg, #10B981, #6EE7B7);
             -webkit-background-clip: text;
@@ -161,21 +168,28 @@
         /* SECTION LAYOUTS */
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.75rem, 5vw, 3rem);
             font-weight: 600;
             line-height: 1.2;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
             color: rgba(255, 255, 255, 0.6);
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .section-header {
+                margin-bottom: 1.5rem;
+            }
         }
 
         /* VISUAL ELEMENTS */
@@ -213,22 +227,57 @@
         }
 
         /* RESPONSIVE TYPOGRAPHY */
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+        }
+        
+        /* MOBILE OPTIMIZATIONS */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-                line-height: 1.2;
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .hero-gradient {
+                padding-top: 1.5rem;
+                padding-bottom: 2rem;
+            }
+            
+            .mockup-container {
+                margin-top: 1.5rem;
+                padding: 1rem;
+            }
+            
+            section {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .py-24 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .space-y-6 > * + * {
+                margin-top: 1rem;
+            }
+            
+            .space-y-8 > * + * {
+                margin-top: 1.5rem;
             }
         }
-
-        @media (min-width: 769px) {
-            .hero-title {
-                font-size: 4rem;
-            }
+        
+        /* CONSISTENT CARD HEIGHTS */
+        .feature-card, .visual-element {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-
-        @media (min-width: 1024px) {
-            .hero-title {
-                font-size: 5rem;
+        
+        @media (max-width: 768px) {
+            .feature-card, .visual-element {
+                min-height: 150px;
             }
         }
 
@@ -254,18 +303,18 @@
 <body class="text-white">
     <!-- HERO SECTION -->
     <section class="hero-gradient relative overflow-hidden">
-        <div class="container mx-auto px-6 md:px-4 py-16 md:py-24">
+        <div class="container mx-auto px-4 py-8 md:py-12 lg:py-16">
             <!-- LOGO -->
-            <div class="text-center mb-16">
+            <div class="mb-8 md:mb-12">
                 <img src="images/logo.png" alt="ALPAVINVEST" 
-                     class="h-16 md:h-20 mx-auto filter brightness-0 invert">
+                     class="h-12 md:h-16 lg:h-20 opacity-95">
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <!-- LEFT: CONTENT -->
-                <div class="space-y-8">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-electric/10 border border-electric/20 rounded-full text-sm text-electric">
-                        <div class="accent-dot"></div>
+                <div class="space-y-4 md:space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-electric/10 border border-electric/20 rounded-full text-sm text-electric">
+                        <div class="w-2 h-2 bg-electric rounded-full animate-pulse"></div>
                         Strategic Investment Platform
                     </div>
 
@@ -273,70 +322,73 @@
                         Power Your Startup with Electric Innovation
                     </h1>
                     
-                    <p class="hero-subtitle text-xl md:text-2xl max-w-lg leading-relaxed">
+                    <p class="hero-subtitle text-lg md:text-xl max-w-lg leading-relaxed">
                         ALPAVINVEST transforms promising startups into market leaders through 
                         strategic investments in emerging technologies, renewable energy, and AI.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col sm:flex-row gap-3 mt-6">
                         <button onclick="window.location.href='mailto:info@alpavinvest.com'" 
-                                class="modern-button px-8 py-4 text-lg font-semibold text-white rounded-xl flex items-center justify-center gap-2">
+                                class="modern-button px-6 py-3 text-base font-semibold text-white rounded-xl flex items-center justify-center gap-2 w-full sm:w-auto">
                             Start Your Journey
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                         
+                        <button class="px-6 py-3 text-base font-medium text-white/80 border border-white/20 rounded-xl active:border-electric/50 transition-colors w-full sm:w-auto">
+                            Learn More
+                        </button>
                     </div>
 
                     <!-- STATS -->
-                    <div class="flex gap-8 pt-8">
-                        <div>
-                            <div class="stat-number">50+</div>
-                            <div class="text-sm text-white/60">Portfolio Companies</div>
+                    <div class="grid grid-cols-2 gap-4 pt-6 mt-6 border-t border-white/10">
+                        <div class="text-center sm:text-left">
+                            <div class="stat-number text-3xl sm:text-4xl">50+</div>
+                            <div class="text-xs sm:text-sm text-white/60 whitespace-nowrap">Portfolio Companies</div>
                         </div>
-                        <div>
-                            <div class="stat-number">€10M+</div>
-                            <div class="text-sm text-white/60">Total Investment</div>
+                        <div class="text-center sm:text-left">
+                            <div class="stat-number text-3xl sm:text-4xl">€10M+</div>
+                            <div class="text-xs sm:text-sm text-white/60 whitespace-nowrap">Total Investment</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- RIGHT: VISUAL MOCKUP -->
-                <div class="mockup-container p-8 rounded-2xl relative">
+                <div class="mockup-container p-4 md:p-8 rounded-2xl relative order-2 lg:order-2">
                     <div class="relative z-10">
                         <!-- PORTFOLIO DASHBOARD MOCKUP -->
-                        <div class="portfolio-visual p-6 rounded-xl mb-6">
+                        <div class="portfolio-visual p-4 md:p-6 rounded-xl mb-4 md:mb-6">
                             <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-lg font-semibold">Investment Portfolio</h3>
-                                <div class="text-electric text-2xl font-light">70/30</div>
+                                <h3 class="text-base md:text-lg font-semibold">Investment Portfolio</h3>
+                                <div class="text-electric text-xl md:text-2xl font-light">70/30</div>
                             </div>
                             
-                            <div class="space-y-4">
+                            <div class="space-y-3 md:space-y-4">
                                 <div class="flex justify-between items-center">
-                                    <span class="text-white/80">Lending Projects</span>
+                                    <span class="text-white/80 text-sm md:text-base">Lending Projects</span>
                                     <span class="text-electric font-medium">70%</span>
                                 </div>
                                 <div class="accent-line"></div>
                                 <div class="flex justify-between items-center">
-                                    <span class="text-white/80">Equity Investments</span>
+                                    <span class="text-white/80 text-sm md:text-base">Equity Investments</span>
                                     <span class="text-electric-cyan font-medium">30%</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- FEATURES PREVIEW -->
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="visual-element p-4 rounded-lg">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                            <div class="visual-element p-3 md:p-4 rounded-lg">
                                 <div class="flex items-center gap-2 mb-2">
                                     <i data-lucide="zap" class="w-4 h-4 text-electric"></i>
-                                    <span class="text-sm font-medium">AI Powered</span>
+                                    <span class="text-xs md:text-sm font-medium">AI Powered</span>
                                 </div>
                                 <div class="text-xs text-white/60">Smart investment decisions</div>
                             </div>
                             
-                            <div class="visual-element p-4 rounded-lg">
+                            <div class="visual-element p-3 md:p-4 rounded-lg">
                                 <div class="flex items-center gap-2 mb-2">
                                     <i data-lucide="trending-up" class="w-4 h-4 text-electric-cyan"></i>
-                                    <span class="text-sm font-medium">Growth Focus</span>
+                                    <span class="text-xs md:text-sm font-medium">Growth Focus</span>
                                 </div>
                                 <div class="text-xs text-white/60">Scalable solutions</div>
                             </div>
@@ -348,7 +400,7 @@
     </section>
 
     <!-- INVESTMENT FOCUS SECTION -->
-    <section class="py-24 px-6 md:px-4">
+    <section class="py-8 md:py-12 lg:py-16 px-4">
         <div class="container mx-auto max-w-7xl">
             <div class="section-header">
                 <h2 class="section-title">
@@ -359,30 +411,30 @@
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start mb-8 lg:mb-12">
                 <!-- CONTENT -->
-                <div class="space-y-8">
-                    <div class="feature-card p-8 rounded-2xl">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-electric/20 rounded-xl flex items-center justify-center">
-                                <i data-lucide="zap" class="w-6 h-6 text-electric"></i>
+                <div class="space-y-4 md:space-y-6">
+                    <div class="feature-card p-5 md:p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-electric/20 rounded-xl flex items-center justify-center">
+                                <i data-lucide="zap" class="w-5 h-5 md:w-6 md:h-6 text-electric"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold">Emerging Technologies</h3>
+                            <h3 class="text-lg md:text-xl font-semibold">Emerging Technologies</h3>
                         </div>
-                        <p class="text-white/70 leading-relaxed">
+                        <p class="text-white/70 leading-relaxed text-sm md:text-base">
                             Revolutionary innovations in blockchain, quantum computing, and next-generation 
                             software platforms that disrupt traditional industries.
                         </p>
                     </div>
 
-                    <div class="feature-card p-8 rounded-2xl">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-electric-cyan/20 rounded-xl flex items-center justify-center">
-                                <i data-lucide="leaf" class="w-6 h-6 text-electric-cyan"></i>
+                    <div class="feature-card p-5 md:p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-electric-cyan/20 rounded-xl flex items-center justify-center">
+                                <i data-lucide="leaf" class="w-5 h-5 md:w-6 md:h-6 text-electric-cyan"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold">Clean Energy</h3>
+                            <h3 class="text-lg md:text-xl font-semibold">Clean Energy</h3>
                         </div>
-                        <p class="text-white/70 leading-relaxed">
+                        <p class="text-white/70 leading-relaxed text-sm md:text-base">
                             Sustainable energy solutions, smart grid technologies, and innovative 
                             approaches to carbon reduction and environmental impact.
                         </p>
@@ -390,33 +442,33 @@
                 </div>
 
                 <!-- VISUAL -->
-                <div class="visual-element p-8 rounded-2xl relative overflow-hidden">
+                <div class="visual-element p-4 md:p-8 rounded-2xl relative overflow-hidden order-2 lg:order-2">
                     <div class="relative z-10">
-                        <div class="mb-6">
-                            <h4 class="text-xl font-medium mb-4">Technology Sectors</h4>
+                        <div class="mb-4 md:mb-6">
+                            <h4 class="text-lg md:text-xl font-medium mb-4">Technology Sectors</h4>
                             <div class="space-y-3">
                                 <div class="flex justify-between items-center">
-                                    <span>Artificial Intelligence</span>
-                                    <span class="text-electric">35%</span>
+                                    <span class="text-sm md:text-base">Artificial Intelligence</span>
+                                    <span class="text-electric font-medium">35%</span>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <span>Renewable Energy</span>
-                                    <span class="text-electric-cyan">25%</span>
+                                    <span class="text-sm md:text-base">Renewable Energy</span>
+                                    <span class="text-electric-cyan font-medium">25%</span>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <span>Industrial IoT</span>
-                                    <span class="text-electric">20%</span>
+                                    <span class="text-sm md:text-base">Industrial IoT</span>
+                                    <span class="text-electric font-medium">20%</span>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <span>Fintech</span>
-                                    <span class="text-electric-cyan">20%</span>
+                                    <span class="text-sm md:text-base">Fintech</span>
+                                    <span class="text-electric-cyan font-medium">20%</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="pt-6 border-t border-white/10">
+                        <div class="pt-4 md:pt-6 border-t border-white/10">
                             <div class="text-sm text-white/60">Total Portfolio Value</div>
-                            <div class="text-2xl font-light text-electric">€12.5M</div>
+                            <div class="text-xl md:text-2xl font-light text-electric">€12.5M</div>
                         </div>
                     </div>
                 </div>
@@ -425,44 +477,44 @@
     </section>
 
     <!-- OUR APPROACH SECTION -->
-    <section class="py-24 px-6 md:px-4 hero-gradient">
+    <section class="py-8 md:py-12 lg:py-16 px-4 hero-gradient">
         <div class="container mx-auto max-w-7xl">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
                 <!-- VISUAL -->
-                <div class="visual-element p-8 rounded-2xl">
-                    <div class="space-y-6">
+                <div class="visual-element p-4 md:p-6 rounded-2xl">
+                    <div class="space-y-3 md:space-y-4">
                         <div>
-                            <h4 class="text-lg font-medium mb-3">Investment Strategy</h4>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="bg-electric/10 p-4 rounded-lg text-center">
-                                    <div class="text-2xl font-light text-electric mb-1">70%</div>
+                            <h4 class="text-base md:text-lg font-medium mb-3">Investment Strategy</h4>
+                            <div class="grid grid-cols-2 gap-3 md:gap-4">
+                                <div class="bg-electric/10 p-3 md:p-4 rounded-lg text-center">
+                                    <div class="text-xl md:text-2xl font-light text-electric mb-1">70%</div>
                                     <div class="text-xs text-white/60">Secured Lending</div>
                                 </div>
-                                <div class="bg-electric-cyan/10 p-4 rounded-lg text-center">
-                                    <div class="text-2xl font-light text-electric-cyan mb-1">30%</div>
+                                <div class="bg-electric-cyan/10 p-3 md:p-4 rounded-lg text-center">
+                                    <div class="text-xl md:text-2xl font-light text-electric-cyan mb-1">30%</div>
                                     <div class="text-xs text-white/60">Equity Stakes</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div>
-                            <h4 class="text-lg font-medium mb-3">Due Diligence Process</h4>
+                            <h4 class="text-base md:text-lg font-medium mb-3">Due Diligence Process</h4>
                             <div class="space-y-2">
                                 <div class="flex items-center gap-3">
                                     <div class="w-2 h-2 bg-electric rounded-full"></div>
-                                    <span class="text-sm text-white/80">Market Analysis</span>
+                                    <span class="text-xs md:text-sm text-white/80">Market Analysis</span>
                                 </div>
                                 <div class="flex items-center gap-3">
                                     <div class="w-2 h-2 bg-electric rounded-full"></div>
-                                    <span class="text-sm text-white/80">Technology Assessment</span>
+                                    <span class="text-xs md:text-sm text-white/80">Technology Assessment</span>
                                 </div>
                                 <div class="flex items-center gap-3">
                                     <div class="w-2 h-2 bg-electric rounded-full"></div>
-                                    <span class="text-sm text-white/80">Team Evaluation</span>
+                                    <span class="text-xs md:text-sm text-white/80">Team Evaluation</span>
                                 </div>
                                 <div class="flex items-center gap-3">
                                     <div class="w-2 h-2 bg-electric rounded-full"></div>
-                                    <span class="text-sm text-white/80">Financial Modeling</span>
+                                    <span class="text-xs md:text-sm text-white/80">Financial Modeling</span>
                                 </div>
                             </div>
                         </div>
@@ -470,37 +522,37 @@
                 </div>
 
                 <!-- CONTENT -->
-                <div class="space-y-8">
+                <div class="space-y-4 md:space-y-6">
                     <div>
-                        <h2 class="section-title">
+                        <h2 class="section-title text-left">
                             Strategic <span class="text-electric">Partnership</span> Approach
                         </h2>
-                        <p class="text-xl text-white/70 leading-relaxed">
+                        <p class="text-base md:text-lg text-white/70 leading-relaxed">
                             We don't just invest—we partner with visionary entrepreneurs to build 
                             sustainable, scalable technology companies that create lasting impact.
                         </p>
                     </div>
 
-                    <div class="space-y-6">
-                        <div class="feature-card p-6 rounded-xl">
-                            <h4 class="font-semibold mb-2">Long-term Vision</h4>
-                            <p class="text-white/70 text-sm">
+                    <div class="space-y-4 md:space-y-6">
+                        <div class="feature-card p-4 md:p-6 rounded-xl">
+                            <h4 class="font-semibold mb-2 text-sm md:text-base">Long-term Vision</h4>
+                            <p class="text-white/70 text-xs md:text-sm">
                                 We support companies through multiple growth stages, from seed to scale-up, 
                                 with patient capital and strategic guidance.
                             </p>
                         </div>
                         
-                        <div class="feature-card p-6 rounded-xl">
-                            <h4 class="font-semibold mb-2">Industry Expertise</h4>
-                            <p class="text-white/70 text-sm">
+                        <div class="feature-card p-4 md:p-6 rounded-xl">
+                            <h4 class="font-semibold mb-2 text-sm md:text-base">Industry Expertise</h4>
+                            <p class="text-white/70 text-xs md:text-sm">
                                 Our team brings deep technical knowledge and market insights across 
                                 AI, clean tech, and industrial innovation sectors.
                             </p>
                         </div>
                         
-                        <div class="feature-card p-6 rounded-xl">
-                            <h4 class="font-semibold mb-2">Network Access</h4>
-                            <p class="text-white/70 text-sm">
+                        <div class="feature-card p-4 md:p-6 rounded-xl">
+                            <h4 class="font-semibold mb-2 text-sm md:text-base">Network Access</h4>
+                            <p class="text-white/70 text-xs md:text-sm">
                                 Connect with our extensive network of industry leaders, technical experts, 
                                 and strategic partners to accelerate growth.
                             </p>
@@ -512,9 +564,9 @@
     </section>
 
     <!-- CTA SECTION -->
-    <section class="py-24 px-6 md:px-4">
+    <section class="py-8 md:py-12 lg:py-16 px-4">
         <div class="container mx-auto max-w-4xl text-center">
-            <div class="space-y-8">
+            <div class="space-y-6">
                 <div>
                     <h2 class="section-title">
                         Ready to <span class="text-electric">Electrify</span> Your Startup?
@@ -524,16 +576,16 @@
                     </p>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
                     <button onclick="window.location.href='mailto:info@alpavinvest.com'" 
-                            class="modern-button px-10 py-5 text-xl font-semibold text-white rounded-xl flex items-center justify-center gap-3">
+                            class="modern-button px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white rounded-xl flex items-center justify-center gap-2 w-full sm:w-auto">
                         Submit Your Pitch
-                        <i data-lucide="send" class="w-5 h-5"></i>
+                        <i data-lucide="send" class="w-4 h-4"></i>
                     </button>
                     
                     <div class="flex items-center justify-center">
                         <a href="mailto:info@alpavinvest.com" 
-                           class="text-electric active:text-electric-bright transition-colors font-medium">
+                           class="text-electric active:text-electric-bright transition-colors font-medium text-sm">
                             info@alpavinvest.com
                         </a>
                     </div>
@@ -543,16 +595,16 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-16 px-6 md:px-4 border-t border-white/10">
+    <footer class="py-6 md:py-8 lg:py-12 px-4 border-t border-white/10">
         <div class="container mx-auto max-w-6xl">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex items-center gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
                     <img src="images/logo.png" alt="ALPAVINVEST" 
-                         class="h-8 filter brightness-0 invert opacity-80">
-                    <span class="text-white/60">Strategic Technology Investments</span>
+                         class="h-5 md:h-6 opacity-80">
+                    <span class="text-white/60 text-sm">Strategic Technology Investments</span>
                 </div>
                 
-                <div class="flex items-center gap-6 text-sm text-white/60">
+                <div class="flex items-center gap-4 text-xs md:text-sm text-white/60">
                     <span>© 2024 ALPAVINVEST HOLDING</span>
                     <a href="mailto:info@alpavinvest.com" class="text-electric active:text-electric-bright transition-colors">
                         Contact
