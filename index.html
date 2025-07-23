@@ -20,182 +20,217 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .electric-gradient {
-            background: linear-gradient(135deg, #000000 0%, #001a15 50%, #000000 100%);
-        }
-        .electric-glow {
-            box-shadow: 0 0 20px rgba(0, 212, 170, 0.15), 0 0 40px rgba(0, 212, 170, 0.1);
-        }
-        .electric-text-glow {
-            text-shadow: 0 0 15px rgba(0, 212, 170, 0.4), 0 0 30px rgba(0, 212, 170, 0.2);
-        }
-        .electric-border {
-            border-image: linear-gradient(90deg, transparent, #00D4AA, transparent) 1;
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(ellipse at center, #001122 0%, #000510 50%, #000000 100%);
         }
 
-        /* Lightning Effects */
-        .lightning {
+        /* Futuristic Circuit Background */
+        .circuit-bg {
             position: absolute;
-            opacity: 0.6;
-        }
-        
-        .lightning::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 100px;
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
-                #00D4AA 20%, 
-                #00FFB8 50%, 
-                #00D4AA 80%, 
-                transparent 100%);
-            box-shadow: 0 0 10px #00D4AA, 0 0 20px #00D4AA, 0 0 30px #00D4AA;
-            animation: lightning-flash 4s ease-in-out infinite;
-        }
-        
-        .lightning::after {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: -15px;
-            width: 30px;
-            height: 1px;
-            background: linear-gradient(to right, 
-                transparent 0%, 
-                #00D4AA 50%, 
-                transparent 100%);
-            box-shadow: 0 0 5px #00D4AA;
-            animation: lightning-branch 4s ease-in-out infinite 0.5s;
-        }
-
-        @keyframes lightning-flash {
-            0%, 100% { opacity: 0.3; transform: scaleY(1); }
-            50% { opacity: 0.8; transform: scaleY(1.1); }
-        }
-
-        @keyframes lightning-branch {
-            0%, 100% { opacity: 0.2; transform: scaleX(0.8); }
-            50% { opacity: 0.6; transform: scaleX(1.2); }
-        }
-
-        /* Electric Circuit Pattern */
-        .electric-circuit {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
+            inset: 0;
+            overflow: hidden;
             pointer-events: none;
         }
 
-        .electric-circuit::before {
-            content: '';
+        .circuit-path {
             position: absolute;
-            top: 20%;
-            left: 10%;
-            width: 80px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #00D4AA, transparent);
-            box-shadow: 0 0 5px #00D4AA;
+            stroke: #00D4AA;
+            stroke-width: 1;
+            fill: none;
+            opacity: 0.3;
+            filter: drop-shadow(0 0 3px #00D4AA);
+            animation: circuit-glow 4s ease-in-out infinite;
         }
 
-        .electric-circuit::after {
-            content: '';
-            position: absolute;
-            top: 60%;
-            right: 15%;
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #00D4AA, transparent);
-            box-shadow: 0 0 5px #00D4AA;
-            animation: circuit-pulse 3s ease-in-out infinite;
+        @keyframes circuit-glow {
+            0%, 100% { opacity: 0.2; stroke-width: 1; }
+            50% { opacity: 0.4; stroke-width: 1.5; }
         }
 
-        @keyframes circuit-pulse {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.3; }
-        }
-
-        /* Electric Sparks */
-        .electric-spark {
+        .circuit-node {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: #00FFB8;
             border-radius: 50%;
-            box-shadow: 0 0 10px #00FFB8, 0 0 20px #00D4AA;
-            animation: spark-flicker 2s ease-in-out infinite;
+            box-shadow: 0 0 15px #00FFB8, 0 0 30px #00D4AA;
+            animation: node-pulse 3s ease-in-out infinite;
         }
 
-        @keyframes spark-flicker {
-            0%, 100% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 0.8; transform: scale(1.2); }
+        @keyframes node-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; }
         }
 
-        /* Energy Flow Lines */
-        .energy-line {
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(0, 212, 170, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 170, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(0, 212, 170, 0.05);
+            border-color: rgba(0, 212, 170, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .glass-card-bright {
+            background: rgba(0, 212, 170, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+        }
+
+        /* Electric Text Effects */
+        .electric-text {
+            color: #00FFB8;
+            text-shadow: 0 0 10px rgba(0, 255, 184, 0.5);
+        }
+
+        .electric-glow-strong {
+            box-shadow: 
+                0 0 20px rgba(0, 212, 170, 0.3),
+                0 0 40px rgba(0, 212, 170, 0.1),
+                inset 0 1px 0 rgba(0, 255, 184, 0.2);
+        }
+
+        /* Organic Circuit Lines */
+        .organic-line {
             position: absolute;
+            height: 1px;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(0, 212, 170, 0.3) 30%, 
-                rgba(0, 255, 184, 0.5) 50%, 
-                rgba(0, 212, 170, 0.3) 70%, 
+                rgba(0, 212, 170, 0.4) 20%, 
+                rgba(0, 255, 184, 0.6) 50%, 
+                rgba(0, 212, 170, 0.4) 80%, 
                 transparent 100%);
-            height: 1px;
-            animation: energy-flow 6s linear infinite;
+            animation: energy-pulse 6s linear infinite;
         }
 
-        @keyframes energy-flow {
-            0% { transform: translateX(-100%); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateX(100vw); opacity: 0; }
+        @keyframes energy-pulse {
+            0% { transform: scaleX(0); opacity: 0; }
+            10% { transform: scaleX(0.3); opacity: 1; }
+            90% { transform: scaleX(1); opacity: 1; }
+            100% { transform: scaleX(0); opacity: 0; }
         }
 
-        /* Enhanced Electric Background */
-        .electric-bg-enhanced {
-            background: 
-                radial-gradient(circle at 15% 25%, rgba(0, 255, 184, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 85% 75%, rgba(0, 212, 170, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(0, 212, 170, 0.03) 0%, transparent 50%),
-                linear-gradient(135deg, #000000 0%, #001a15 50%, #000000 100%);
+        /* Floating Elements */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Electric Button */
+        .electric-btn {
+            background: linear-gradient(135deg, #00D4AA 0%, #00FFB8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .electric-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .electric-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Connection Lines Animation */
+        .connection-line {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw-line 3s ease-in-out infinite;
+        }
+
+        @keyframes draw-line {
+            0% { stroke-dashoffset: 100; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -100; }
         }
     </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="text-white min-h-screen relative">
+    <!-- Circuit Background -->
+    <div class="circuit-bg">
+        <!-- SVG Circuit Paths -->
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <!-- Curved circuit paths inspired by the reference -->
+            <path class="circuit-path connection-line" d="M100,150 Q300,100 500,200 T900,180" style="animation-delay: 0s;"/>
+            <path class="circuit-path connection-line" d="M50,400 Q250,350 450,450 T850,420" style="animation-delay: 1s;"/>
+            <path class="circuit-path connection-line" d="M200,600 Q400,550 600,650 T1000,630" style="animation-delay: 2s;"/>
+            <path class="circuit-path connection-line" d="M150,300 Q350,250 550,350 T950,320" style="animation-delay: 1.5s;"/>
+            
+            <!-- Vertical connections -->
+            <path class="circuit-path" d="M300,100 L300,300" style="animation-delay: 0.5s;"/>
+            <path class="circuit-path" d="M600,200 L600,450" style="animation-delay: 1.5s;"/>
+            <path class="circuit-path" d="M900,180 L900,420" style="animation-delay: 2.5s;"/>
+        </svg>
+        
+        <!-- Circuit Nodes -->
+        <div class="circuit-node" style="top: 18%; left: 25%; animation-delay: 0s;"></div>
+        <div class="circuit-node" style="top: 25%; left: 50%; animation-delay: 0.5s;"></div>
+        <div class="circuit-node" style="top: 22%; left: 75%; animation-delay: 1s;"></div>
+        <div class="circuit-node" style="top: 50%; left: 20%; animation-delay: 1.5s;"></div>
+        <div class="circuit-node" style="top: 56%; left: 50%; animation-delay: 2s;"></div>
+        <div class="circuit-node" style="top: 52%; left: 80%; animation-delay: 2.5s;"></div>
+        <div class="circuit-node" style="top: 75%; left: 35%; animation-delay: 3s;"></div>
+        <div class="circuit-node" style="top: 81%; left: 70%; animation-delay: 3.5s;"></div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="min-h-screen electric-bg-enhanced flex flex-col justify-center items-center px-4 relative overflow-hidden">
-        <!-- Electric Effects -->
-        <div class="electric-circuit"></div>
-        
-        <!-- Lightning Bolts -->
-        <div class="lightning" style="top: 15%; left: 12%;"></div>
-        <div class="lightning" style="top: 45%; right: 8%; animation-delay: 1s;"></div>
-        <div class="lightning" style="bottom: 25%; left: 25%; animation-delay: 2s;"></div>
-        
-        <!-- Electric Sparks -->
-        <div class="electric-spark" style="top: 30%; left: 20%; animation-delay: 0.5s;"></div>
-        <div class="electric-spark" style="top: 70%; right: 30%; animation-delay: 1.5s;"></div>
-        <div class="electric-spark" style="bottom: 40%; left: 60%; animation-delay: 2.5s;"></div>
-        
-        <!-- Energy Flow Lines -->
-        <div class="energy-line" style="top: 25%; width: 200px; animation-delay: 1s;"></div>
-        <div class="energy-line" style="top: 65%; width: 150px; animation-delay: 3s;"></div>
-        <div class="energy-line" style="bottom: 35%; width: 180px; animation-delay: 5s;"></div>
+    <section class="min-h-screen flex flex-col justify-center items-center px-4 relative">
+        <!-- Hero specific circuit animation -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+                <!-- Hero circuit paths -->
+                <path class="circuit-path connection-line" d="M200,100 Q400,50 600,150 Q800,250 1000,200" style="animation-delay: 0s; opacity: 0.4;"/>
+                <path class="circuit-path connection-line" d="M100,300 Q300,250 500,350 Q700,450 900,400" style="animation-delay: 1s; opacity: 0.3;"/>
+                <path class="circuit-path connection-line" d="M300,500 Q500,450 700,550 Q900,650 1100,600" style="animation-delay: 2s; opacity: 0.35;"/>
+                <path class="circuit-path connection-line" d="M50,600 Q250,550 450,650 Q650,750 850,700" style="animation-delay: 1.5s; opacity: 0.25;"/>
+                
+                <!-- Connecting verticals -->
+                <path class="circuit-path" d="M400,50 Q400,200 400,350" style="animation-delay: 0.7s; opacity: 0.3;"/>
+                <path class="circuit-path" d="M700,150 Q700,300 700,450" style="animation-delay: 1.7s; opacity: 0.3;"/>
+                <path class="circuit-path" d="M500,350 Q500,450 500,550" style="animation-delay: 2.3s; opacity: 0.25;"/>
+            </svg>
+            
+            <!-- Hero circuit nodes -->
+            <div class="circuit-node" style="top: 12%; left: 33%; animation-delay: 0s;"></div>
+            <div class="circuit-node" style="top: 18%; left: 58%; animation-delay: 0.8s;"></div>
+            <div class="circuit-node" style="top: 37%; left: 25%; animation-delay: 1.2s;"></div>
+            <div class="circuit-node" style="top: 43%; left: 58%; animation-delay: 1.8s;"></div>
+            <div class="circuit-node" style="top: 50%; left: 83%; animation-delay: 2.2s;"></div>
+            <div class="circuit-node" style="top: 68%; left: 41%; animation-delay: 2.8s;"></div>
+            <div class="circuit-node" style="top: 75%; left: 70%; animation-delay: 3.2s;"></div>
+        </div>
         
         <div class="max-w-5xl mx-auto text-center relative z-10">
             <!-- Logo -->
-            <div class="mb-12">
+            <div class="mb-12 floating-element">
                 <img src="images/logo.png" alt="ALPAVINVEST HOLDING" class="h-16 md:h-20 mx-auto filter brightness-0 invert">
             </div>
 
             <!-- Main Headline -->
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
                 <span class="font-extralight">Strategic Investments in</span><br>
-                <span class="font-semibold text-electric electric-text-glow">Emerging Technologies</span>
+                <span class="font-semibold electric-text">Emerging Technologies</span>
             </h1>
 
             <!-- Subtitle -->
@@ -207,25 +242,20 @@
             <!-- CTA -->
             <div class="mb-16">
                 <a href="mailto:info@alpavinvest.com" 
-                   class="inline-block px-8 py-4 bg-gradient-to-r from-electric-dark to-electric text-black font-medium text-lg hover:from-electric hover:to-electric-bright transition-all duration-300 electric-glow">
+                   class="electric-btn inline-block px-8 py-4 text-black font-medium text-lg electric-glow-strong relative z-10">
                     Contatta il nostro team
                 </a>
             </div>
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <div class="w-px h-16 bg-gradient-to-b from-electric to-transparent"></div>
-        </div>
     </section>
 
     <!-- About Section -->
-    <section class="py-20 md:py-32 px-4">
-        <div class="max-w-6xl mx-auto">
+    <section class="py-20 md:py-32 px-4 relative">
+        <div class="max-w-6xl mx-auto relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="text-3xl md:text-5xl font-light mb-8">
-                        <span class="text-electric">Visione</span> Strategica
+                        <span class="electric-text">Visione</span> Strategica
                     </h2>
                     <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
                         Con una visione orientata al lungo termine, ALPAVINVEST seleziona e sostiene 
@@ -235,23 +265,23 @@
                     <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
                         Attraverso una rete di partecipazioni qualificate e una governance snella ma solida, 
                         costruiamo valore reale nel tempo, promuovendo un'economia evolutiva basata su 
-                        <span class="text-electric font-medium">etica, tecnologia e visione imprenditoriale</span>.
+                        <span class="electric-text font-medium">etica, tecnologia e visione imprenditoriale</span>.
                     </p>
                 </div>
-                <div class="relative">
-                    <div class="bg-gradient-to-br from-gray-950 to-electric-dark p-8 md:p-12 electric-glow">
+                <div class="relative floating-element">
+                    <div class="glass-card-bright p-8 md:p-12">
                         <div class="text-center">
-                            <div class="text-5xl md:text-6xl font-light text-electric mb-4">70/30</div>
+                            <div class="text-5xl md:text-6xl font-light electric-text mb-4">70/30</div>
                             <div class="text-sm uppercase tracking-wide text-gray-400 mb-8">Struttura Portafoglio</div>
                             <div class="space-y-6">
                                 <div class="flex justify-between items-center text-lg">
                                     <span class="text-gray-300">Progetti Lending</span>
-                                    <span class="text-electric font-medium">70%</span>
+                                    <span class="electric-text font-medium">70%</span>
                                 </div>
-                                <div class="w-full h-px bg-gradient-to-r from-transparent via-electric to-transparent"></div>
+                                <div class="organic-line w-full"></div>
                                 <div class="flex justify-between items-center text-lg">
                                     <span class="text-gray-300">Progetti Equity</span>
-                                    <span class="text-electric font-medium">30%</span>
+                                    <span class="electric-text font-medium">30%</span>
                                 </div>
                             </div>
                         </div>
@@ -262,33 +292,37 @@
     </section>
 
     <!-- Focus Areas -->
-    <section class="py-20 md:py-32 px-4 electric-bg-enhanced relative overflow-hidden">
-        <!-- Subtle lightning for this section -->
-        <div class="lightning" style="top: 20%; right: 5%; opacity: 0.3; animation-delay: 1s;"></div>
-        <div class="electric-spark" style="bottom: 30%; left: 10%; animation-delay: 2s;"></div>
-        
+    <section class="py-20 md:py-32 px-4 relative">
         <div class="max-w-6xl mx-auto relative z-10">
             <h2 class="text-3xl md:text-5xl font-light text-center mb-16">
-                Aree di <span class="text-electric">Investimento</span>
+                Aree di <span class="electric-text">Investimento</span>
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
-                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">⚡</div>
+                <div class="glass-card p-8 floating-element" style="animation-delay: 0s;">
+                    <div class="electric-text mb-6">
+                        <i data-lucide="zap" class="w-8 h-8"></i>
+                    </div>
                     <h3 class="text-xl font-medium mb-4 text-white">Tecnologie Emergenti</h3>
                     <p class="text-gray-400 leading-relaxed">Innovazioni disruptive e soluzioni tecnologiche avanzate per il futuro digitale</p>
                 </div>
-                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
-                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">🔋</div>
+                <div class="glass-card p-8 floating-element" style="animation-delay: 0.5s;">
+                    <div class="electric-text mb-6">
+                        <i data-lucide="battery-charging" class="w-8 h-8"></i>
+                    </div>
                     <h3 class="text-xl font-medium mb-4 text-white">Energie Rinnovabili</h3>
                     <p class="text-gray-400 leading-relaxed">Soluzioni sostenibili e innovative per la transizione energetica globale</p>
                 </div>
-                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
-                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">🏭</div>
+                <div class="glass-card p-8 floating-element" style="animation-delay: 1s;">
+                    <div class="electric-text mb-6">
+                        <i data-lucide="factory" class="w-8 h-8"></i>
+                    </div>
                     <h3 class="text-xl font-medium mb-4 text-white">Innovazione Industriale</h3>
                     <p class="text-gray-400 leading-relaxed">Automazione avanzata e processi produttivi di nuova generazione</p>
                 </div>
-                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
-                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">🤖</div>
+                <div class="glass-card p-8 floating-element" style="animation-delay: 1.5s;">
+                    <div class="electric-text mb-6">
+                        <i data-lucide="brain-circuit" class="w-8 h-8"></i>
+                    </div>
                     <h3 class="text-xl font-medium mb-4 text-white">Intelligenza Artificiale</h3>
                     <p class="text-gray-400 leading-relaxed">AI e machine learning per applicazioni scalabili e trasformative</p>
                 </div>
@@ -297,25 +331,25 @@
     </section>
 
     <!-- Values Section -->
-    <section class="py-20 md:py-32 px-4">
-        <div class="max-w-4xl mx-auto text-center">
+    <section class="py-20 md:py-32 px-4 relative">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
             <h2 class="text-3xl md:text-5xl font-light mb-16">
-                I Nostri <span class="text-electric">Valori</span>
+                I Nostri <span class="electric-text">Valori</span>
             </h2>
             <div class="grid md:grid-cols-3 gap-12">
-                <div class="space-y-6">
-                    <div class="text-electric font-medium text-2xl tracking-wide">ETICA</div>
-                    <div class="w-16 h-px bg-gradient-to-r from-transparent via-electric to-transparent mx-auto"></div>
+                <div class="glass-card p-8 floating-element" style="animation-delay: 0s;">
+                    <div class="electric-text font-medium text-2xl tracking-wide mb-4">ETICA</div>
+                    <div class="organic-line w-16 mx-auto mb-6"></div>
                     <p class="text-gray-300 leading-relaxed">Investimenti responsabili, trasparenti e orientati alla sostenibilità</p>
                 </div>
-                <div class="space-y-6">
-                    <div class="text-electric font-medium text-2xl tracking-wide">TECNOLOGIA</div>
-                    <div class="w-16 h-px bg-gradient-to-r from-transparent via-electric to-transparent mx-auto"></div>
+                <div class="glass-card p-8 floating-element" style="animation-delay: 0.5s;">
+                    <div class="electric-text font-medium text-2xl tracking-wide mb-4">TECNOLOGIA</div>
+                    <div class="organic-line w-16 mx-auto mb-6"></div>
                     <p class="text-gray-300 leading-relaxed">Innovazione come motore di crescita e trasformazione sociale</p>
                 </div>
-                <div class="space-y-6">
-                    <div class="text-electric font-medium text-2xl tracking-wide">VISIONE</div>
-                    <div class="w-16 h-px bg-gradient-to-r from-transparent via-electric to-transparent mx-auto"></div>
+                <div class="glass-card p-8 floating-element" style="animation-delay: 1s;">
+                    <div class="electric-text font-medium text-2xl tracking-wide mb-4">VISIONE</div>
+                    <div class="organic-line w-16 mx-auto mb-6"></div>
                     <p class="text-gray-300 leading-relaxed">Prospettiva imprenditoriale a lungo termine e pensiero strategico</p>
                 </div>
             </div>
@@ -323,26 +357,21 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-20 md:py-32 px-4 electric-bg-enhanced relative overflow-hidden">
-        <!-- Electric effects for contact -->
-        <div class="lightning" style="top: 25%; left: 8%; opacity: 0.4; animation-delay: 0.5s;"></div>
-        <div class="electric-spark" style="top: 60%; right: 15%; animation-delay: 1.5s;"></div>
-        <div class="energy-line" style="top: 40%; width: 120px; animation-delay: 2s;"></div>
-        
+    <section class="py-20 md:py-32 px-4 relative">
         <div class="max-w-4xl mx-auto text-center relative z-10">
             <h2 class="text-3xl md:text-5xl font-light mb-8">
-                Hai un Progetto <span class="text-electric">Innovativo</span>?
+                Hai un Progetto <span class="electric-text">Innovativo</span>?
             </h2>
             <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
                 Costruiamo insieme il futuro dell'innovazione tecnologica
             </p>
             <div class="space-y-8">
                 <a href="mailto:info@alpavinvest.com" 
-                   class="inline-block px-12 py-5 bg-gradient-to-r from-electric-dark to-electric text-black font-medium text-xl hover:from-electric hover:to-electric-bright transition-all duration-300 electric-glow">
+                   class="electric-btn inline-block px-12 py-5 text-black font-medium text-xl electric-glow-strong">
                     Presenta il tuo progetto
                 </a>
                 <div class="text-lg text-gray-400">
-                    <a href="mailto:info@alpavinvest.com" class="text-electric hover:text-electric-bright transition-colors">
+                    <a href="mailto:info@alpavinvest.com" class="electric-text hover:text-white transition-colors">
                         info@alpavinvest.com
                     </a>
                 </div>
@@ -351,20 +380,25 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 px-4 border-t border-electric/20">
-        <div class="max-w-6xl mx-auto text-center">
+    <footer class="py-12 px-4 border-t border-electric/20 relative">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
             <div class="mb-6">
                 <img src="images/logo.png" alt="ALPAVINVEST" class="h-8 mx-auto filter brightness-0 invert opacity-60">
             </div>
             <p class="text-gray-500 text-sm mb-2">
                 © 2024 ALPAVINVEST HOLDING - Strategic Investments in Emerging Technologies
             </p>
-            <p class="text-electric text-sm">
-                <a href="mailto:info@alpavinvest.com" class="hover:text-electric-bright transition-colors">
+            <p class="electric-text text-sm">
+                <a href="mailto:info@alpavinvest.com" class="hover:text-white transition-colors">
                     info@alpavinvest.com
                 </a>
             </p>
         </div>
     </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
