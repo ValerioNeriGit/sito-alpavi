@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPAVINVEST HOLDING - Strategic Investments in Emerging Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'electric': '#00D4AA',
+                        'electric-bright': '#00FFB8',
+                        'electric-dark': '#004D3D',
+                        'gray-950': '#0a0a0a',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .electric-gradient {
+            background: linear-gradient(135deg, #000000 0%, #001a15 50%, #000000 100%);
+        }
+        .electric-glow {
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.1);
+        }
+        .electric-text-glow {
+            text-shadow: 0 0 10px rgba(0, 212, 170, 0.3);
+        }
+        .electric-border {
+            border-image: linear-gradient(90deg, transparent, #00D4AA, transparent) 1;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <!-- Hero Section -->
+    <section class="min-h-screen electric-gradient flex flex-col justify-center items-center px-4 relative overflow-hidden">
+        <!-- Subtle electric effects -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-10 w-1 h-32 bg-gradient-to-b from-transparent via-electric to-transparent"></div>
+            <div class="absolute top-40 right-20 w-1 h-24 bg-gradient-to-b from-transparent via-electric to-transparent"></div>
+            <div class="absolute bottom-32 left-1/3 w-1 h-28 bg-gradient-to-b from-transparent via-electric to-transparent"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Logo -->
+            <div class="mb-12">
+                <img src="images/logo.png" alt="ALPAVINVEST HOLDING" class="h-16 md:h-20 mx-auto filter brightness-0 invert">
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
+                <span class="font-extralight">Strategic Investments in</span><br>
+                <span class="font-semibold text-electric electric-text-glow">Emerging Technologies</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                ALPAVINVEST HOLDING investe in startup tecnologiche, energie rinnovabili, 
+                innovazione industriale e intelligenza artificiale con una visione orientata al futuro.
+            </p>
+
+            <!-- CTA -->
+            <div class="mb-16">
+                <a href="mailto:info@alpavinvest.com" 
+                   class="inline-block px-8 py-4 bg-gradient-to-r from-electric-dark to-electric text-black font-medium text-lg hover:from-electric hover:to-electric-bright transition-all duration-300 electric-glow">
+                    Contatta il nostro team
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="w-px h-16 bg-gradient-to-b from-electric to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 md:py-32 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-light mb-8">
+                        <span class="text-electric">Visione</span> Strategica
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+                        Con una visione orientata al lungo termine, ALPAVINVEST seleziona e sostiene 
+                        progetti ad alto potenziale trasformativo, accompagnando startup, brevetti e 
+                        aziende verso la crescita, l'impatto e la sostenibilità.
+                    </p>
+                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+                        Attraverso una rete di partecipazioni qualificate e una governance snella ma solida, 
+                        costruiamo valore reale nel tempo, promuovendo un'economia evolutiva basata su 
+                        <span class="text-electric font-medium">etica, tecnologia e visione imprenditoriale</span>.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-gray-950 to-electric-dark p-8 md:p-12 electric-glow">
+                        <div class="text-center">
+                            <div class="text-5xl md:text-6xl font-light text-electric mb-4">70/30</div>
+                            <div class="text-sm uppercase tracking-wide text-gray-400 mb-8">Struttura Portafoglio</div>
+                            <div class="space-y-6">
+                                <div class="flex justify-between items-center text-lg">
+                                    <span class="text-gray-300">Progetti Lending</span>
+                                    <span class="text-electric font-medium">70%</span>
+                                </div>
+                                <div class="w-full h-px bg-gradient-to-r from-transparent via-electric to-transparent"></div>
+                                <div class="flex justify-between items-center text-lg">
+                                    <span class="text-gray-300">Progetti Equity</span>
+                                    <span class="text-electric font-medium">30%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas -->
+    <section class="py-20 md:py-32 px-4 electric-gradient">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-light text-center mb-16">
+                Aree di <span class="text-electric">Investimento</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
+                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">⚡</div>
+                    <h3 class="text-xl font-medium mb-4 text-white">Tecnologie Emergenti</h3>
+                    <p class="text-gray-400 leading-relaxed">Innovazioni disruptive e soluzioni tecnologiche avanzate per il futuro digitale</p>
+                </div>
+                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
+                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">🔋</div>
+                    <h3 class="text-xl font-medium mb-4 text-white">Energie Rinnovabili</h3>
+                    <p class="text-gray-400 leading-relaxed">Soluzioni sostenibili e innovative per la transizione energetica globale</p>
+                </div>
+                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
+                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">🏭</div>
+                    <h3 class="text-xl font-medium mb-4 text-white">Innovazione Industriale</h3>
+                    <p class="text-gray-400 leading-relaxed">Automazione avanzata e processi produttivi di nuova generazione</p>
+                </div>
+                <div class="bg-gray-950/50 p-8 hover:bg-gray-950/70 transition-all duration-300 group">
+                    <div class="text-electric text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">🤖</div>
+                    <h3 class="text-xl font-medium mb-4 text-white">Intelligenza Artificiale</h3>
+                    <p class="text-gray-400 leading-relaxed">AI e machine learning per applicazioni scalabili e trasformative</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 md:py-32 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-light mb-16">
+                I Nostri <span class="text-electric">Valori</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-6">
+                    <div class="text-electric font-medium text-2xl tracking-wide">ETICA</div>
+                    <div class="w-16 h-px bg-gradient-to-r from-transparent via-electric to-transparent mx-auto"></div>
+                    <p class="text-gray-300 leading-relaxed">Investimenti responsabili, trasparenti e orientati alla sostenibilità</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="text-electric font-medium text-2xl tracking-wide">TECNOLOGIA</div>
+                    <div class="w-16 h-px bg-gradient-to-r from-transparent via-electric to-transparent mx-auto"></div>
+                    <p class="text-gray-300 leading-relaxed">Innovazione come motore di crescita e trasformazione sociale</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="text-electric font-medium text-2xl tracking-wide">VISIONE</div>
+                    <div class="w-16 h-px bg-gradient-to-r from-transparent via-electric to-transparent mx-auto"></div>
+                    <p class="text-gray-300 leading-relaxed">Prospettiva imprenditoriale a lungo termine e pensiero strategico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 md:py-32 px-4 electric-gradient">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-light mb-8">
+                Hai un Progetto <span class="text-electric">Innovativo</span>?
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
+                Costruiamo insieme il futuro dell'innovazione tecnologica
+            </p>
+            <div class="space-y-8">
+                <a href="mailto:info@alpavinvest.com" 
+                   class="inline-block px-12 py-5 bg-gradient-to-r from-electric-dark to-electric text-black font-medium text-xl hover:from-electric hover:to-electric-bright transition-all duration-300 electric-glow">
+                    Presenta il tuo progetto
+                </a>
+                <div class="text-lg text-gray-400">
+                    <a href="mailto:info@alpavinvest.com" class="text-electric hover:text-electric-bright transition-colors">
+                        info@alpavinvest.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-electric/20">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="mb-6">
+                <img src="images/logo.png" alt="ALPAVINVEST" class="h-8 mx-auto filter brightness-0 invert opacity-60">
+            </div>
+            <p class="text-gray-500 text-sm mb-2">
+                © 2024 ALPAVINVEST HOLDING - Strategic Investments in Emerging Technologies
+            </p>
+            <p class="text-electric text-sm">
+                <a href="mailto:info@alpavinvest.com" class="hover:text-electric-bright transition-colors">
+                    info@alpavinvest.com
+                </a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
