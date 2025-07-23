@@ -10,11 +10,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'electric': '#8B5CF6',
-                        'electric-bright': '#A855F7',
-                        'electric-cyan': '#06B6D4',
-                        'dark': '#0F0F23',
-                        'dark-light': '#1A1A2E',
+                        'electric': '#10B981',
+                        'electric-bright': '#34D399',
+                        'electric-cyan': '#6EE7B7',
+                        'dark': '#0F1419',
+                        'dark-light': '#1A2332',
                     }
                 }
             }
@@ -32,17 +32,17 @@
         
         body { 
             font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #0F0F23 100%);
+            background: linear-gradient(135deg, #0F1419 0%, #1A2332 50%, #0F1419 100%);
             min-height: 100vh;
         }
 
         /* MODERN GRADIENT BACKGROUND */
         .hero-gradient {
             background: 
-                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%);
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(110, 231, 183, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(52, 211, 153, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #0F1419 0%, #1A2332 100%);
         }
 
         /* MODERN TYPOGRAPHY */
@@ -50,7 +50,7 @@
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 0%, #8B5CF6 50%, #06B6D4 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #10B981 50%, #6EE7B7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -64,27 +64,27 @@
 
         /* PREMIUM BUTTON */
         .modern-button {
-            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
             box-shadow: 
-                0 10px 30px rgba(139, 92, 246, 0.3),
-                0 0 0 1px rgba(139, 92, 246, 0.2);
+                0 10px 30px rgba(16, 185, 129, 0.3),
+                0 0 0 1px rgba(16, 185, 129, 0.2);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .modern-button:active {
             transform: translateY(1px);
             box-shadow: 
-                0 5px 15px rgba(139, 92, 246, 0.4),
-                0 0 0 1px rgba(139, 92, 246, 0.3);
+                0 5px 15px rgba(16, 185, 129, 0.4),
+                0 0 0 1px rgba(16, 185, 129, 0.3);
         }
 
         /* MOCKUP CONTAINER */
         .mockup-container {
             background: linear-gradient(135deg, 
-                rgba(139, 92, 246, 0.1) 0%, 
-                rgba(6, 182, 212, 0.05) 50%, 
-                rgba(168, 85, 247, 0.1) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
+                rgba(16, 185, 129, 0.1) 0%, 
+                rgba(110, 231, 183, 0.05) 50%, 
+                rgba(52, 211, 153, 0.1) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
             backdrop-filter: blur(20px);
             position: relative;
             overflow: hidden;
@@ -96,7 +96,7 @@
             inset: 0;
             background: linear-gradient(45deg, 
                 transparent 30%, 
-                rgba(139, 92, 246, 0.1) 50%, 
+                rgba(16, 185, 129, 0.1) 50%, 
                 transparent 70%);
             animation: shimmer 3s ease-in-out infinite;
         }
@@ -109,27 +109,27 @@
         /* FEATURE CARDS */
         .feature-card {
             background: linear-gradient(135deg, 
-                rgba(26, 26, 46, 0.8) 0%, 
-                rgba(139, 92, 246, 0.05) 50%, 
-                rgba(26, 26, 46, 0.9) 100%);
+                rgba(26, 35, 50, 0.8) 0%, 
+                rgba(16, 185, 129, 0.05) 50%, 
+                rgba(26, 35, 50, 0.9) 100%);
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .feature-card:hover {
-            border-color: rgba(139, 92, 246, 0.3);
+            border-color: rgba(16, 185, 129, 0.3);
             transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15);
         }
 
         /* PORTFOLIO VISUAL */
         .portfolio-visual {
             background: linear-gradient(135deg, 
-                rgba(139, 92, 246, 0.2) 0%, 
-                rgba(6, 182, 212, 0.1) 50%, 
-                rgba(139, 92, 246, 0.15) 100%);
-            border: 2px solid rgba(139, 92, 246, 0.3);
+                rgba(16, 185, 129, 0.2) 0%, 
+                rgba(110, 231, 183, 0.1) 50%, 
+                rgba(16, 185, 129, 0.15) 100%);
+            border: 2px solid rgba(16, 185, 129, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -143,7 +143,7 @@
             height: 1px;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(139, 92, 246, 0.8) 50%, 
+                rgba(16, 185, 129, 0.8) 50%, 
                 transparent 100%);
         }
 
